@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}{{ form.instance.pk|yesno:"Nova Entrega" }}{% endblock %}
+{% block content %}
+<h2>{{ form.instance.pk|yesno:"Nova Entrega" }}</h2>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+{% endblock %}

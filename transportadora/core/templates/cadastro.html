@@ -1,0 +1,15 @@
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="mb-3">
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.errors %}
+        <div class="text-danger">{{ field.errors }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+  <div class="d-grid">
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+  </div>
+</form>

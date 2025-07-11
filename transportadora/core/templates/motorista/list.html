@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Motoristas{% endblock %}
+{% block content %}
+<h2>Motoristas</h2>
+<a href="{% url 'motorista_create' %}" class="btn btn-success mb-3">Novo Motorista</a>
+<table class="table table-striped">
+  <thead><tr><th>Nome</th><th>CPF</th><th>Telefone</th><th>Ações</th></tr></thead>
+  <tbody>
+    {% for motorista in motoristas %}
+      <tr>
+        <td>{{ motorista.nome }}</td>
+        <td>{{ motorista.cpf }}</td>
+        <td>{{ motorista.telefone }}</td>
+        <td>
+          <a href="{% url 'motorista_update' motorista.pk %}" class="btn btn-sm btn-warning">Editar</a>
+          <a href="{% url 'motorista_delete' motorista.pk %}" class="btn btn-sm btn-danger">Excluir</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

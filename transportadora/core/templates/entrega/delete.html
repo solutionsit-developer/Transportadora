@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Excluir Entrega{% endblock %}
+{% block content %}
+<h2>Confirma a exclusão da entrega #{{ entrega.id }}?</h2>
+<form method="post">{% csrf_token %}
+  <button type="submit" class="btn btn-danger">Confirmar</button>
+  <a href="{% url 'entrega_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

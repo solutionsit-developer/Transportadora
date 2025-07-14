@@ -156,6 +156,17 @@ def motorista_delete(request, pk):
         return redirect('motorista_list')
     return render(request, 'motorista/delete.html', {'motorista': motorista})
 
+def contato_view(request):
+    if request.method == 'POST':
+        nome = request.POST.get('name')
+        email = request.POST.get('email')
+        assunto = request.POST.get('subject')
+        mensagem = request.POST.get('message')
+
+        messages.success(request, 'Mensagem enviada com sucesso! Retornaremos em breve.')
+        return redirect('home') 
+
+    return render(request, 'contato.html')
 
 # PEDIDO
 @login_required

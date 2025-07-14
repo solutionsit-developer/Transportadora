@@ -7,6 +7,8 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     #path('cadastro/', views.cadastro_view, name='cadastro'),
     path('cadastro-completo/', views.cadastro_completo_view, name='cadastro_completo'),
+    
+    path('contato/', views.contato_view, name='contato'),
 
     path('clientes/', views.cliente_list, name='cliente_list'),
     path('clientes/novo/', views.cliente_create, name='cliente_create'),

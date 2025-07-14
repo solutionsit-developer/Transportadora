@@ -7,27 +7,39 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">Transportadora</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Transportadora</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        {% if user.is_authenticated %}
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link" href="{% url 'cliente_list' %}">Clientes</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'motorista_list' %}">Motoristas</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'pedido_list' %}">Pedidos</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'entrega_list' %}">Entregas</a></li>
-        </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-warning" href="{% url 'logout' %}">Sair</a></li>
-        </ul>
-        {% endif %}
-      </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      {% if user.is_authenticated %}
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'cliente_list' %}">Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'motorista_list' %}">Motoristas</a></li>
+        <li class="nav-item"><a class="nav-link" >Pedidos</a></li>
+        <li class="nav-item"><a class="nav-link" >Entregas</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contato' %}">Contato</a></li>  <!-- NOVO LINK -->
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link text-warning" href="{% url 'logout' %}">Sair</a></li>
+      </ul>
+      {% endif %}
     </div>
-  </nav>
+  </div>
+</nav>
+
+{% if messages %}
+<div class="container mt-3">
+  {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
 
   <div class="container">
     {% block content %}{% endblock %}

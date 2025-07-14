@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h4 class="mb-0">Entre em Contato com os Desenvolvedores</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome:</label>
+                    <input type="text" class="form-control" id="name" name="name" required placeholder="Seu nome completo">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Assunto:</label>
+                    <input type="text" class="form-control" id="subject" name="subject" required placeholder="Sobre o quê é a mensagem?">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Mensagem:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Escreva sua mensagem..."></textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -32,108 +32,77 @@ A aplicação permite o cadastro e gerenciamento de clientes e motoristas, além
 ```bash
 git clone https://github.com/solutionsit-developer/Transportadora.git
 cd Transportadora
-2. Crie e ative o ambiente virtual
-bash
-Copiar
-Editar
+```
+
+### 2. Crie e ative o ambiente virtual
+
+```bash
 python -m venv venv
 venv\Scripts\activate  # Para Windows
-3. Instale as dependências
-bash
-Copiar
-Editar
-pip install -r requirements.txt
-4. Configure o arquivo .env
-Crie um arquivo .env na raiz do projeto com as seguintes variáveis:
+```
 
-ini
-Copiar
-Editar
+### 3. Instale as dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure o arquivo `.env`
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+```
 DB_NAME=transportadora_db
 DB_USER=seu_usuario
 DB_PASSWORD=sua_senha
 DB_HOST=localhost
 DB_PORT=3306
 SECRET_KEY=sua_chave_secreta_django
-5. Aplique as migrações
-bash
-Copiar
-Editar
-python manage.py migrate
-6. Execute o servidor
-bash
-Copiar
-Editar
-python manage.py runserver
-Abra o navegador e acesse http://localhost:8000.
+```
 
-🗃️ Estrutura do Banco de Dados
+### 5. Aplique as migrações
+
+```bash
+python manage.py migrate
+```
+
+### 6. Execute o servidor
+
+```bash
+python manage.py runserver
+```
+
+Abra o navegador e acesse `http://localhost:8000`.
+
+## 🗃️ Estrutura do Banco de Dados
+
 O banco foi modelado de forma relacional em MySQL, com as seguintes tabelas:
 
-Cliente: Armazena dados pessoais e empresariais dos clientes.
-
-Motorista: Contém dados dos motoristas, inclusive CNH.
-
-Pedido: Representa pedidos feitos por clientes, com previsão e status de entrega.
-
-Entrega: Registra os dados das entregas realizadas, motoristas envolvidos e CT-e.
+- **Cliente**: Armazena dados pessoais e empresariais dos clientes.
+- **Motorista**: Contém dados dos motoristas, inclusive CNH.
+- **Pedido**: Representa pedidos feitos por clientes, com previsão e status de entrega.
+- **Entrega**: Registra os dados das entregas realizadas, motoristas envolvidos e CT-e.
 
 As tabelas estão relacionadas com chaves estrangeiras, garantindo integridade referencial. O banco foi criado no MySQL Workbench e testado com dados de exemplo.
 
-🖼️ Interface Web
+## 🖼️ Interface Web
+
 A interface foi desenvolvida com Django + Bootstrap 5. Conta com:
 
-Tela de login
+- Tela de login
+- Cadastro de usuários
+- Página inicial com menu de navegação
+- CRUD completo para clientes e motoristas
+- Formulário de contato com os desenvolvedores
+- Validações de formulário com mensagens de sucesso
 
-Cadastro de usuários
+**Observação:** as interfaces de Pedido e Entrega estão desativadas na navegação, pois ainda não foram implementadas.
 
-Página inicial com menu de navegação
+## 📬 Contato com Desenvolvedores
 
-CRUD completo para clientes e motoristas
-
-Formulário de contato com os desenvolvedores
-
-Validações de formulário com mensagens de sucesso
-
-Observação: as interfaces de Pedido e Entrega estão desativadas na navegação, pois ainda não foram implementadas.
-
-📬 Contato com Desenvolvedores
 Usuários autenticados podem acessar um formulário de contato para enviar mensagens diretamente à equipe de desenvolvimento. Após o envio, uma mensagem de sucesso é exibida e o usuário é redirecionado para a página inicial.
 
-👥 Desenvolvedores
-Ana Clara Perosa
+## Desenvolvedores
 
-[Nome do colega, se aplicável]
-
-📄 .gitignore (utilizado no projeto)
-O projeto conta com o seguinte .gitignore, para evitar envio de arquivos sensíveis ou desnecessários ao repositório:
-
-bash
-Copiar
-Editar
-# Ambiente virtual
-venv/
-ENV/
-env/
-
-# Arquivos do Django
-*.log
-*.pot
-*.pyc
-__pycache__/
-db.sqlite3
-
-# Arquivos de sistema
-.DS_Store
-Thumbs.db
-
-# IDEs
-.vscode/
-.idea/
-
-# Variáveis de ambiente
-.env
-.env.*
-
-# Compilação
-*.py[cod]
+- Ana Clara Perosa  
+- Tiago Pegorini

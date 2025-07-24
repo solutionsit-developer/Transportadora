@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
 {% block title %}Início{% endblock %}
+
 {% block content %}
-<h2>Bem-vindo, {{ user.username }}!</h2>
-<p>Use o menu acima para navegar.</p>
+<div class="text-center mb-5">
+  <h1 class="fw-bold">TransLog Brasil</h1>
+  <p class="fs-5 fst-italic text-muted">"Conectando destinos, entregando confiança."</p>
+</div>
+
+<div class="row justify-content-center g-4">
+  <div class="col-md-4">
+    <div class="card shadow text-center border-0">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Pedidos Entregues</h5>
+        <p class="display-5 text-success fw-bold">1.274</p>
+        <p class="text-muted">Entregas realizadas com sucesso</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow text-center border-0">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold">Clientes Ativos</h5>
+        <p class="display-5 text-primary fw-bold">326</p>
+        <p class="text-muted">Clientes em todo o Brasil</p>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

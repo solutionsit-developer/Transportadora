@@ -92,7 +92,7 @@ A interface foi desenvolvida com Django + Bootstrap 5. Conta com:
 - Tela de login
 - Cadastro de usuários
 - Página inicial com menu de navegação
-- CRUD completo para clientes e motoristas
+- CRUD completo para clientes
 - Formulário de contato com os desenvolvedores
 - Validações de formulário com mensagens de sucesso
 

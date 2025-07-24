@@ -2,11 +2,48 @@ from django import forms
 from .models import Cliente, Motorista, Pedido, Entrega
 from django.contrib.auth.forms import AuthenticationForm
 
+# Função auxiliar para aplicar a classe Bootstrap
+def aplicar_estilo_bootstrap(campos):
+    for field in campos.values():
+        if not isinstance(field.widget, forms.CheckboxInput):  # Evita aplicar em checkbox
+            field.widget.attrs['class'] = 'form-control'
+
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = '__all__'
-        
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        aplicar_estilo_bootstrap(self.fields)
+
+class MotoristaForm(forms.ModelForm):
+    class Meta:
+        model = Motorista
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        aplicar_estilo_bootstrap(self.fields)
+
+class PedidoForm(forms.ModelForm):
+    class Meta:
+        model = Pedido
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        aplicar_estilo_bootstrap(self.fields)
+
+class EntregaForm(forms.ModelForm):
+    class Meta:
+        model = Entrega
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        aplicar_estilo_bootstrap(self.fields)
+
 class CadastroUnificadoForm(forms.Form):
     nome = forms.CharField(label="Nome", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     cpf_cnpj = forms.CharField(label="CPF ou CNPJ", max_length=20, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -73,18 +110,3 @@ class LoginForm(AuthenticationForm):
         label='Senha',
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Digite sua senha'})
     )
-    
-class MotoristaForm(forms.ModelForm):
-    class Meta:
-        model = Motorista
-        fields = '__all__'
-
-class PedidoForm(forms.ModelForm):
-    class Meta:
-        model = Pedido
-        fields = '__all__'
-
-class EntregaForm(forms.ModelForm):
-    class Meta:
-        model = Entrega
-        fields = '__all__'

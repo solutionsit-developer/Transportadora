@@ -4,7 +4,7 @@ Sistema Web desenvolvido com Django e MySQL para gerenciamento de clientes, moto
 
 ## 💡 Sobre o Projeto
 
-Este projeto foi criado como parte da disciplina de Práticas Extensionistas II, com foco em banco de dados relacionais, autenticação, formulários e interface web utilizando o framework Django.
+Este projeto foi criado como parte da disciplina de Práticas Extensionistas III, com foco em banco de dados relacionais, autenticação, formulários e interface web utilizando o framework Django.
 
 A aplicação permite o cadastro e gerenciamento de clientes e motoristas, além de conter um formulário de contato e autenticação de usuários com login e logout. O sistema conta com uma interface responsiva desenvolvida com Bootstrap.
 
